@@ -100,6 +100,7 @@ map wm :WMToggle<CR>
 map <C-w> :wq<CR>
 map <C-c> :q!<CR>
 map <F4>  :call AddTitle()<cr>
+map <F6>  :call SCAddTitle()<cr>
 set pastetoggle=<F5>
 map <C-F12> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q *<CR>
 
@@ -130,6 +131,7 @@ function AddTitle()
     call append(6,"  Email : 1730806439@qq.com")
     call append(7,"  ------------------------------------")
     call append(8,"*/")
+    call append(9,"")
 endf
 
 function UpdateTitle()
@@ -152,6 +154,8 @@ function SCAddTitle()
     call append(8,"#!/bin/bash")
     call append(9,"PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin")
     call append(10,"export PATH")
+    call append(11,"clear")
+    call append(12,"")
 endf
 
 function SCUpdateTitle()
