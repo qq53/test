@@ -154,8 +154,7 @@ function SCAddTitle()
     call append(8,"#!/bin/bash")
     call append(9,"PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin")
     call append(10,"export PATH")
-    call append(11,"clear")
-    call append(12,"")
+    call append(11,"")
 endf
 
 function SCUpdateTitle()
