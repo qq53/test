@@ -99,8 +99,6 @@ map wm :WMToggle<CR>
 
 map <C-w> :wq<CR>
 map <C-c> :q!<CR>
-map <F4>  :call AddTitle()<cr>
-map <F6>  :call SCAddTitle()<cr>
 set pastetoggle=<F5>
 map <C-F12> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q *<CR>
 
@@ -134,13 +132,27 @@ function AddTitle()
     call append(9,"")
 endf
 
+function AddTitleAndCheck()
+    if line($) < 6
+	call AddTitle()
+	return
+    endif
+    let l = getline(6,6)
+    try 
+	throw l[0]
+    catch /\s*Author :.*/
+	return
+    endtry
+endf
+
 function UpdateTitle()
     call setline(1,"/// \\file ".expand("%:t"))
 	call setline(5,"  Modified date: ".strftime("%Y-%m-%d %H:%M"))
 endf
 
-au BufNewFile *.hpp,*.cpp,*.c,*.h exec ":call AddTitle()"
-au InsertLeave *.cpp,*.hpp,*.h,*.c exec ":call UpdateTitle()"
+au BufRead *.java,*.hpp,*.cpp,*.c,*.h exec ":call AddTitleAndCheck()"
+au BufNewFile *.java,*.hpp,*.cpp,*.c,*.h exec ":call AddTitle()"
+au InsertLeave *.java,*.cpp,*.hpp,*.h,*.c exec ":call UpdateTitle()"
 
 function SCAddTitle()
 	call append(0,"#  File : ".expand("%:t"))
