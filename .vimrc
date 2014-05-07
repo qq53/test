@@ -132,7 +132,7 @@ function AddTitle()
     call append(9,"")
 endf
 
-function AddTitleAndCheck()
+function! AddTitleAndCheck()
     if line("$") < 6
 	call AddTitle()
 	return
@@ -142,8 +142,8 @@ function AddTitleAndCheck()
 	throw l[0]
     catch /\s*Author :.*/
 	return
-    finally
-	return
+    catch
+	call AddTitle()
     endtry
 endf
 
