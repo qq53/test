@@ -140,7 +140,7 @@ function! AddTitleAndCheck()
     let l = getline(6,6)
     try 
 	throw l[0]
-    catch /\s*Author:.*/
+    catch /\s*Author \?:.*/
 	return
     catch
 	call AddTitle()
