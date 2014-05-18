@@ -38,7 +38,7 @@ if [ "$PS1" ]; then
   history -a
   # Turn on checkwinsize
   shopt -s checkwinsize
-  [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\[\033[32m\]\u\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]]\\$ "
+  [ "$PS1" = "\\s-\\v\\\$ " ] && PS1="[\[\033[1;32m\]\u\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]]\\$ "
   # You might want to have e.g. tty in prompt (e.g. more virtual machines)
   # and console windows
   # If you want to do so, just add e.g.
