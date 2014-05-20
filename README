@@ -1,2 +1,5 @@
-修改/etc/bashrc里的PS1赋值语句，即可显示命令前导颜色
-PS1="[\[\033[1;32m\]\u\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]]\\$ "
+1. 先安装git
+2. git clone https://github.com/qq53/test.git
+3. cd test
+4. ./init
+5. 根据提示修改bashrc文件
