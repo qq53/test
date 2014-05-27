@@ -15,8 +15,27 @@ cp -rf autoload/ /usr/share/vim/vim74/
 cp -rf doc/ /usr/share/vim/vim74/
 cp -rf plugin/ /usr/share/vim/vim74/
 
-[ -f /etc/bashrc ] &&
-cat /etc/bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
+if [ -f /etc/bashrc ]; then
+	if cat /etc/bashrc | egrep "\\\]\\\u" > /dev/null; then
+		exit 
+	else
+		cat /etc/bash.bashrc | sed 's/\\u/[\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+			sed 's/\\w/\\[\\033[1;34m\\]\\W\\[\\033[0m\\]]/g' | sed 's/\\h//g' >> tmp
+	fi
+	rm /etc/bashrc
+	mv tmp /etc/bashrc
+fi
 
-[ -f /etc/bash.bashrc ] &&
-cat /etc/bash.bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\\u/[\\[\\033[1;32m\]\\u\\[\\033[0m\\]/g' | sed 's/\\w/\\[\\033[1;34m\]\\W\[\\033[0m\\]]/g'
+if [ -f /etc/bash.bashrc ]; then
+	if cat /etc/bash.bashrc | egrep "\\\]\\\u" > /dev/null; then
+		exit
+	else
+		cat /etc/bash.bashrc | sed 's/\\u/[\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+			sed 's/\\w/\\[\\033[1;34m\\]\\W\\[\\033[0m\\]]/g' | sed 's/\\h//g' >> tmp
+	fi
+	rm /etc/bash.bashrc
+	mv tmp /etc/bash.bashrc
+	if [ -f ~/.bashrc ]; then
+		cat ~/.bashrc | egrep -i "^source /etc/bash.bashrc$" > /dev/null && exit || echo 'source /etc/bash.bashrc' >> ~/.bashrc
+	fi
+fi
