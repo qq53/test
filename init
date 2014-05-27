@@ -10,13 +10,13 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-mv ./.vimrc ~/
+mv .vimrc ~/
 mv autoload/ /usr/share/vim/vim74/
 mv doc/ /usr/share/vim/vim74/
 mv plugin/ /usr/share/vim/vim74/
 
 [ -f /etc/bashrc ] &&
-cat /etc/bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
+cat /etc/bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
 
 [ -f /etc/bash.bashrc ] &&
-cat /etc/bash.bashc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
+cat /etc/bash.bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\\u/[\\[\\033[1;32m\]\\u\\[\\033[0m\\]/g' | sed 's/\\w/\\[\\033[1;34m\]\\W\[\\033[0m\\]]/g'
