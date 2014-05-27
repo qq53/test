@@ -1,5 +1,4 @@
 1. 先安装git
 2. git clone https://github.com/qq53/test.git
 3. cd test
-4. ./init
-5. 根据提示修改bashrc文件
+4. sudo ./init
