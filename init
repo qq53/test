@@ -15,8 +15,8 @@ mv autoload/ /usr/share/vim/vim74/
 mv doc/ /usr/share/vim/vim74/
 mv plugin/ /usr/share/vim/vim74/
 
-clear
-echo -e "参考以下说明:\n"
-echo '修改/etc/bashrc里的PS1赋值语句，即可显示命令前导颜色'
-echo 'PS1="[\[\033[1;32m\]\u\[\033[0m\] \[\033[1;34m\]\W\[\033[0m\]]\\$ "'
-echo ""
+[ -f /etc/bashrc ] &&
+cat /etc/bashrc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
+
+[ -f /etc/bash.bashrc ] &&
+cat /etc/bash.bashc | sed -r '/[pP][sS]1=.*/q' | tac | head -n 1 | sed 's/\u/[\[\033[1;32m\]\u\[\033[0m\]/g' | sed 's/\W/\[\033[1;34m\]\W\[\033[0m\]]/g'
