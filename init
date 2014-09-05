@@ -11,9 +11,9 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
 cp -rf .vimrc ~/
-cp -rf autoload/ /usr/share/vim/vim74/
-cp -rf doc/ /usr/share/vim/vim74/
-cp -rf plugin/ /usr/share/vim/vim74/
+cp -rf autoload/ /usr/share/vim/vim73/
+cp -rf doc/ /usr/share/vim/vim73/
+cp -rf plugin/ /usr/share/vim/vim73/
 
 echo "下面修改代码头信息所需要的数据: "
 read -p "输入昵称: " name

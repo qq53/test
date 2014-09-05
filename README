@@ -1,4 +1,5 @@
 1. 先安装git
 2. git clone https://github.com/qq53/test.git
 3. cd test
-4. sudo ./init
+4. 确保vim74这个路径正确
+5. sudo ./init
