@@ -105,6 +105,11 @@ map <C-F12> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q *<CR
 set tags=tags;
 set autochdir
 
+autocmd BufReadPost *
+\ if line("'\"")>0&&line("'\"")<=line("$") |
+\ exe "normal g'\"" |
+\ endif
+
 "mnicppcomplete setting --
 set completeopt=menu,menuone
 let OmniCpp_MayCompleteDot = 1 " autocomplete with .
@@ -126,7 +131,7 @@ function AddTitle()
     call append(3,"  Create date : ".strftime("%Y-%m-%d %H:%M"))
     call append(4,"  Modified date : ".strftime("%Y-%m-%d %H:%M"))
     call append(5,"  Author : Sen1993")
-    call append(6,"  Email : 1730806439@qq.com")
+    call append(6,"  Email : gsen1993@gmail.com")
     call append(7,"  ------------------------------------")
     call append(8,"*/")
     call append(9,"")
@@ -162,7 +167,7 @@ function SCAddTitle()
     call append(2,"#  Create date : ".strftime("%Y-%m-%d %H:%M"))
     call append(3,"#  Modified date : ".strftime("%Y-%m-%d %H:%M"))
     call append(4,"#  Author : Sen1993")
-    call append(5,"#  Email : 1730806439@qq.com")
+    call append(5,"#  Email : gsen1993@gmail.com")
     call append(6,"#  ------------------------------------")
     call append(7," ")
     call append(8,"#!/bin/bash")
