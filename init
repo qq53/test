@@ -46,3 +46,5 @@ if [ -f /etc/bash.bashrc ]; then
 		cat ~/.bashrc | egrep -i "^source /etc/bash.bashrc$" > /dev/null && exit || echo 'source /etc/bash.bashrc' >> ~/.bashrc
 	fi
 fi
+
+echo "alias vim=vimx" >> ~/.bashrc
