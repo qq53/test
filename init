@@ -26,8 +26,8 @@ if [ -f /etc/bashrc ]; then
 	if cat /etc/bashrc | egrep "^[^#]+\\\]\\\u" > /dev/null; then
 		exit 
 	else
-		cat /etc/bashrc | sed -r 's/(^[^#]+)\\u/\1[\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
-			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
+		cat /etc/bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
 	fi
 	rm /etc/bashrc
 	mv tmp /etc/bashrc
@@ -37,8 +37,8 @@ if [ -f /etc/bash.bashrc ]; then
 	if cat /etc/bash.bashrc | egrep "^[^#]+\\\]\\\u" > /dev/null; then
 		exit
 	else
-		cat /etc/bash.bashrc | sed -r 's/(^[^#]+)\\u/\1[\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
-			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
+		cat /etc/bash.bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
 	fi
 	rm /etc/bash.bashrc
 	mv tmp /etc/bash.bashrc
@@ -46,5 +46,3 @@ if [ -f /etc/bash.bashrc ]; then
 		cat ~/.bashrc | egrep -i "^source /etc/bash.bashrc$" > /dev/null && exit || echo 'source /etc/bash.bashrc' >> ~/.bashrc
 	fi
 fi
-
-echo "alias vim=vimx" >> ~/.bashrc
