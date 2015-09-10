@@ -11,6 +11,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
 cp -rf .vimrc ~/
+cp -rf .gdbinit ~/
 cp -rf autoload/ /usr/share/vim/vim73/
 cp -rf doc/ /usr/share/vim/vim73/
 cp -rf plugin/ /usr/share/vim/vim73/
