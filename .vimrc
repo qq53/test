@@ -105,11 +105,6 @@ map <C-F12> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q *<CR
 set tags=tags;
 set autochdir
 
-autocmd BufReadPost *
-\ if line("'\"")>0&&line("'\"")<=line("$") |
-\ exe "normal g'\"" |
-\ endif
-
 "mnicppcomplete setting --
 set completeopt=menu,menuone
 let OmniCpp_MayCompleteDot = 1 " autocomplete with .
@@ -123,3 +118,8 @@ let OmniCpp_DisplayMode=1
 let OmniCpp_DefaultNamespaces=["std"]
 
 let complcache_enable_at_startup = 1
+
+autocmd BufReadPost *
+\ if line("'\"")>0&&line("'\"")<=line("$") |
+\ exe "normal g'\"" |
+\ endif
