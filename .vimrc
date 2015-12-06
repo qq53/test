@@ -99,6 +99,7 @@ map wm :WMToggle<CR>
 
 map <C-w> :wq<CR>
 map <C-c> :q!<CR>
+map <C-e> :w<CR>
 set pastetoggle=<F5>
 map <C-F12> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q *<CR>
 
