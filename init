@@ -16,18 +16,11 @@ cp -rf autoload/ /usr/share/vim/vim73/
 cp -rf doc/ /usr/share/vim/vim73/
 cp -rf plugin/ /usr/share/vim/vim73/
 
-echo "下面修改代码头信息所需要的数据: "
-read -p "输入昵称: " name
-read -p "输入邮箱: " email
-
-cat .vimrc | sed "s/Sen1993/$name/g" | sed "s/1730806439@qq.com/$email/g"	> tmp2
-mv tmp2 ~/.vimrc
-
 if [ -f /etc/bashrc ]; then
 	if cat /etc/bashrc | egrep "^[^#]+\\\]\\\u" > /dev/null; then
 		exit 
 	else
-		cat /etc/bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+		cat /etc/bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;31m\\]\\u\\[\\033[0m\\]/g' | 
 			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
 	fi
 	rm /etc/bashrc
@@ -38,7 +31,7 @@ if [ -f /etc/bash.bashrc ]; then
 	if cat /etc/bash.bashrc | egrep "^[^#]+\\\]\\\u" > /dev/null; then
 		exit
 	else
-		cat /etc/bash.bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;32m\\]\\u\\[\\033[0m\\]/g' | 
+		cat /etc/bash.bashrc | sed -r 's/(^[^#]+)\\u/\1\\[\\033[1;31m\\]\\u\\[\\033[0m\\]/g' | 
 			sed -r 's/(^[^#]+)\\w/\1\\[\\033[1;34m\\]\\W\\[\\033[0m\\]/g' | sed -r 's/(^[^#]+)\\h/\1/g' >> tmp
 	fi
 	rm /etc/bash.bashrc
